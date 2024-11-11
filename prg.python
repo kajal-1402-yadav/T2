@@ -1,1 +1,95 @@
+#Balanced String
 
+s1=input("Enter any string:")
+s2=input("Enter any string:")
+b=True
+for i in s1:
+    if i not in s2:
+        b=False
+        break
+if b==True:
+    for i in s2:
+        if i not in s1:
+            b=False
+            break
+if b:
+    print("Balanced String")
+else:
+    print("Not Balanced String")
+
+
+#capitalize first and last letters of a word in a sentence
+
+s=input("Enter any string:")
+print(len(s))
+s1=s.title()
+n=""
+print(s1)
+for i in range (0,len(s1)):
+    if i==len(s)-1:
+        n+=s1[i].capitalize()
+    elif s1[i+1]==" ":
+        n+=s1[i].capitalize()
+    else:
+        n+=s1[i]
+print(n)        
+
+
+
+#Password verification-more than 8 characters ,atleast one digit,atleast one uppercase,atleast one lowercase,no space,atleast one special character
+
+s=input("Enter your password:")
+d=u=l=ns=sc=0
+if len(s)>=8:
+    for i in range(0,len(s)):
+        if s[i].isdigit():
+            d+=1
+        elif s[i].islower():
+            l+=1
+        elif s[i].isupper():
+            u+=1
+        elif s[i].isspace():
+            ns+=1  
+        else:
+            sc+=1 
+    if d<1:
+        print("No digit found")
+    if l<1:
+        print("No lowercase found")
+    if u<1:
+        print("No uppercase found")
+    if ns>=1:
+        print("Space not allowed")
+    if sc<1:
+        print("No special character found")    
+
+    if d >= 1 and l >= 1 and u >= 1 and ns == 0 and sc >= 1:
+        print("Password is valid")
+else:
+    print("Password must be of 8 characters")
+
+
+
+
+#330
+s = input("Enter the text to encrypt: ")
+shift = int(input("Enter the shift value: "))
+u = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+l = "abcdefghijklmnopqrstuvwxyz"
+n = ""
+
+for i in s:
+    if i in u:
+        s1 = (u.index(i) + shift) % 26
+        n += u[s1]
+    elif i in l:
+        s1 = (l.index(i) + shift) % 26
+        n += l[s1]
+    else:
+        n += i 
+print(n)
+
+        
+        
+        
+        
